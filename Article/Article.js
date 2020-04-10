@@ -112,7 +112,7 @@ Step 4: Map over the data, creating a component for each oject and add each comp
 Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-function panelMaker(data,content){
+function panelMaker(content){
 /* create elements*/
   const article = document.createElement('div')
   const articleTitle = document.createElement('h2')
@@ -124,7 +124,7 @@ function panelMaker(data,content){
 
   /*    add event listener */    
        articleExpButton.addEventListener('click', function(event){
-        article.classlist.toggle('article-open')
+        article.classList.toggle('article-open')
 
       });
       
@@ -139,7 +139,7 @@ function panelMaker(data,content){
 /* create classes*/    
     article.classList.add('article');
     dateOfArticle.classList.add('date');
-    articleExpButton.classList.add('expandButton')
+    articleExpButton.classList.add('expandButton');
 
 
 
@@ -147,8 +147,8 @@ function panelMaker(data,content){
     articleTitle.textContent = data.title;
     dateOfArticle.textContent = data.date;
     paragraphOne.textContent = data.firstParagraph;
-    paragraphTwo.textContent = data.secondParagraph
-    paragraphThree.textContent = data.thirdParagraph
+    paragraphTwo.textContent = data.secondParagraph;
+    paragraphThree.textContent = data.thirdParagraph;
     articleExpButton.textContent = 'See More...';
 
 
@@ -160,10 +160,7 @@ function panelMaker(data,content){
 /*    console.log(articles)  verify able to grab element before appending  */
 
 data.forEach(function(data){
-
-
-/* console.log('panels',data.title); verify forEach function is pulling data from array*/
-
-articles.append(panelMaker(data.title, data.content))
+  console.log(data.date, data.title, data.firstParagraph,data.secondParagraph)
+ articles.append(panelMaker(data.title, data.content))
 });
 
