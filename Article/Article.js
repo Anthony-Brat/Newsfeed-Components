@@ -112,43 +112,58 @@ Step 4: Map over the data, creating a component for each oject and add each comp
 Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
-function panelMaker(title, content){
-
-  const article = document.createElement('div');
+function panelMaker(data,content){
+/* create elements*/
+  const article = document.createElement('div')
   const articleTitle = document.createElement('h2')
   const dateOfArticle = document.createElement('p')
-  const paragraph1 = document.createElement ('p')
-  const paragraph2 = document.createElement ('p')
-  const paragraph3 = document.createElement ('p')
+  const paragraphOne = document.createElement ('p')
+  const paragraphTwo = document.createElement ('p')
+  const paragraphThree = document.createElement ('p')
   const articleExpButton = document.createElement ('span')
-/*        articleExpButton.addEventListener('click', function(event){
-        event.target.toggleAttribute()
+
+  /*    add event listener */    
+       articleExpButton.addEventListener('click', function(event){
+        article.classlist.toggle('article-open')
 
       });
-*/
+      
+ /* nest elements */     
       article.append(articleTitle);
       article.append(dateOfArticle);
-      article.append(paragraph1);
-      article.append(paragraph2);
-      article.append(paragraph3);
+      article.append(paragraphOne);
+      article.append(paragraphTwo);
+      article.append(paragraphThree);
       article.append(articleExpButton);
 
-    
+/* create classes*/    
     article.classList.add('article');
     dateOfArticle.classList.add('date');
     articleExpButton.classList.add('expandButton')
 
 
 
-
-    articleTitle.textContent = title;
-    dateOfArticle.textContent = date;
-    paragraphOne.textContent = firstParagraph;
-    paragraphTwo.textContent = secondParagraph
-    paragraphThree.textContent = thirdParagraph
+/* add content to elements*/
+    articleTitle.textContent = data.title;
+    dateOfArticle.textContent = data.date;
+    paragraphOne.textContent = data.firstParagraph;
+    paragraphTwo.textContent = data.secondParagraph
+    paragraphThree.textContent = data.thirdParagraph
+    articleExpButton.textContent = 'See More...';
 
 
 
       return article
 }
   
+    const articles = document.querySelector('.articles');
+/*    console.log(articles)  verify able to grab element before appending  */
+
+data.forEach(function(data){
+
+
+/* console.log('panels',data.title); verify forEach function is pulling data from array*/
+
+articles.append(panelMaker(data.title, data.content))
+});
+
