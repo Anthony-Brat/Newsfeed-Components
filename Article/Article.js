@@ -112,3 +112,15 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function panelMaker(title, content){
+
+    const article = document.createElement('div');
+    const articleTitle = document.createElement('h2')
+    const articleDate = document.createElement ('p')
+    const articleDate2 = document.createElement ('p')
+    const articleDate3 = document.createElement ('p')
+    const articleExpButton = document.createElement ('span')
+
+
+
+}
